@@ -87,8 +87,6 @@
       /* הופך את הקישור לבלוק */
     }
 
-
-
     .item-box:hover {
       transform: translateY(-10px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
@@ -111,7 +109,6 @@
     }
 
     footer {
-
       color: white;
       text-align: center;
       padding: 1rem;
@@ -125,57 +122,76 @@
 
 <body>
   <div class="header">
-
     <h1>חידונים על סדרת דופליקטים</h1>
-    <h2>כמות החידונים באתר כרגע : 7</h2>
+    <h2 id="quiz-counter">כמות החידונים באתר כרגע: ...</h2>
   </div>
 
   <div class="container">
-    <div class="items-grid">
+    <div class="items-grid" id="quizzes">
       <!-- Item 1 - עכשיו כקישור -->
-      <a href="Duplicate1.html" class="item-box">
+      <a href="Duplicate1.html" class="item-box category-link" data-quiz-count="2">
         <img src="images/דופליקטים 1 הדמיה.png" alt="דופליקטים 1" class="item-image">
         <div class="item-name">דופליקטים 1-התגלות</div>
       </a>
 
       <!-- Item 2 - עכשיו כקישור -->
-      <a href="Duplicate2.html" class="item-box">
+      <a href="Duplicate2.html" class="item-box category-link" data-quiz-count="4">
         <img src="images/דופליקטים 2 הדמיה.png" alt="דופליקטים 2" class="item-image">
         <div class="item-name">דופליקטים 2-אוצרים: כבלי החירות</div>
       </a>
 
       <!-- Item 3 - עכשיו כקישור -->
-      <a href="דופליקטים3.html" class="item-box">
+      <a href="דופליקטים3.html" class="item-box category-link" data-quiz-count="0">
         <img src="/api/placeholder/200/180" alt="דופליקטים 3" class="item-image">
         <div class="item-name">כאן שמים את השם</div>
       </a>
 
       <!-- Item 4 - עכשיו כקישור -->
-      <a href="דופליקטים4.html" class="item-box">
+      <a href="דופליקטים4.html" class="item-box category-link" data-quiz-count="0">
         <img src="/api/placeholder/200/180" alt="דופליקטים 4" class="item-image">
         <div class="item-name">כאן שמים את השם</div>
       </a>
 
       <!-- Item 5 - עכשיו כקישור -->
-      <a href="דופליקטים5.html" class="item-box">
+      <a href="דופליקטים5.html" class="item-box category-link" data-quiz-count="0">
         <img src="/api/placeholder/200/180" alt="דופליקטים 5" class="item-image">
         <div class="item-name">כאן שמים את השם</div>
       </a>
-      <a href="involved.html" class="item-box">
-        <img src="images/סמל דופליקטים.png" alt="דופליקטים 5" class="item-image">
+      <a href="involved.html" class="item-box category-link" data-quiz-count="1">
+        <img src="images/סמל דופליקטים.png" alt="חידונים מעורבים" class="item-image">
         <div class="item-name">חידונים מעורבים</div>
       </a>
       <a href="everything.html" class="item-box">
-        <img src="images/סמל דופליקטים.png" alt="דופליקטים 5" class="item-image">
+        <img src="images/סמל דופליקטים.png" alt="כל החידונים" class="item-image">
         <div class="item-name">כל החידונים</div>
       </a>
     </div>
-  </div>
   </div>
 
   <footer>
     © 2025 אתר החידונים על סדרת דופליקטים - כל הזכויות שמורות
   </footer>
+
+  <script>
+    // פונקציה לספירת מספר החידונים הכולל ועדכון הכותרת
+    function updateQuizCounter() {
+      // נספור את כל החידונים בכל הדפים
+      let totalQuizCount = 0;
+      
+      // איסוף ערכי data-quiz-count מכל הקישורים
+      const categoryLinks = document.querySelectorAll('.category-link');
+      categoryLinks.forEach(link => {
+        const quizCount = parseInt(link.getAttribute('data-quiz-count') || '0');
+        totalQuizCount += quizCount;
+      });
+      
+      // עדכון הטקסט בכותרת
+      document.getElementById('quiz-counter').textContent = `כמות החידונים באתר כרגע: ${totalQuizCount}`;
+    }
+
+    // הפעלת הפונקציה כאשר הדף נטען
+    document.addEventListener('DOMContentLoaded', updateQuizCounter);
+  </script>
 </body>
 
 </html>
