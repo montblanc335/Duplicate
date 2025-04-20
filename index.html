@@ -49,16 +49,20 @@
       /* צל קל לטקסט */
     }
 
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    
     h2 {
       margin: 0;
       color: red;
     }
 
-    a {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
+
 
     .container {
       max-width: 1200px;
@@ -183,14 +187,14 @@
     function updateQuizCounter() {
       // נספור את כל החידונים בכל הדפים
       let totalQuizCount = 0;
-      
+
       // איסוף ערכי data-quiz-count מכל הקישורים
       const categoryLinks = document.querySelectorAll('.category-link');
       categoryLinks.forEach(link => {
         const quizCount = parseInt(link.getAttribute('data-quiz-count') || '0');
         totalQuizCount += quizCount;
       });
-      
+
       // עדכון הטקסט בכותרת
       document.getElementById('quiz-counter').textContent = `כמות החידונים באתר כרגע: ${totalQuizCount}`;
     }
