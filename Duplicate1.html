@@ -10,7 +10,7 @@
 
     :root {
       --main-color: #008080;
-      --text-color: #f6f9f9;
+      --text-color: white;
       --accent-color: red;
     }
 
@@ -34,7 +34,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: 
+      background:
         radial-gradient(circle at 20% 30%, rgba(0, 128, 128, 0.15) 0%, transparent 70%),
         radial-gradient(circle at 80% 10%, rgba(0, 128, 128, 0.1) 0%, transparent 60%);
       z-index: -1;
@@ -43,9 +43,19 @@
 
     /* אנימציית חלקיקים מרחפים */
     @keyframes float {
-      0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-      50% { opacity: 0.3; }
-      100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 0.3;
+      }
+
+      100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+      }
     }
 
     .particle {
@@ -59,7 +69,9 @@
     }
 
     .header {
-      background-color: var(--main-color);
+      background-color: #4a0072;
+      box-shadow: 0 0 15px #9d00ff;
+      border: 1px solid #9d00ff;
       color: white;
       text-align: center;
       padding: 3rem 2rem;
@@ -84,16 +96,21 @@
     }
 
     @keyframes rotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
     }
 
     h1 {
       margin: 0;
       font-size: 2.5rem;
       font-weight: 900;
-      text-shadow: 0 0 10px rgba(0, 0, 0, 0.3), 
-                  0 0 20px rgba(0, 128, 128, 0.5);
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(0, 128, 128, 0.5);
       position: relative;
       z-index: 1;
     }
@@ -116,18 +133,22 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 2.5rem;
+      gap: 2rem;
+      /* שינוי מ-2.5rem ל-2rem כדי להתאים לשורה */
       margin-bottom: 3rem;
       padding: 1rem;
     }
 
     .item-box {
-      background-color: var(--main-color);
+      background-color: #4a0072;
+      box-shadow: 0 0 15px #9d00ff;
+      border: 1px solid #9d00ff;
       border-radius: 15px;
       overflow: hidden;
-      width: 220px;
+      width: 200px;
+      /* הקטנה מ-220px ל-200px כדי שיתאים 4 בשורה */
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1),
-                  0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
       transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
       position: relative;
       text-decoration: none;
@@ -154,7 +175,7 @@
     .item-box:hover {
       transform: perspective(1000px) translateY(-15px) rotateY(5deg);
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15),
-                  0 0 30px rgba(0, 128, 128, 0.3);
+        0 0 30px rgba(0, 128, 128, 0.3);
       cursor: pointer;
     }
 
@@ -217,7 +238,9 @@
       margin-top: 2rem;
       position: relative;
       z-index: 1;
-      background-color: rgba(0, 128, 128, 0.8);
+      background-color: #4a0072;
+      box-shadow: 0 0 15px #9d00ff;
+      border: 1px solid #9d00ff;
       clip-path: polygon(0% 30%, 50% 0%, 100% 30%, 100% 100%, 0% 100%);
       padding-top: 5rem;
     }
@@ -237,19 +260,19 @@
       h1 {
         font-size: 2rem;
       }
-      
+
       .header {
         padding: 2rem 1rem;
       }
-      
+
       .items-grid {
         gap: 1.5rem;
       }
-      
+
       .item-box {
         width: 160px;
       }
-      
+
       .item-image {
         height: 160px;
       }
@@ -270,16 +293,23 @@
   <div class="container">
     <div class="items-grid">
       <!-- Item 1 -->
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfYZdLP4x3eFVeJSwIOMSrnABqh-XIvGt-l98PqmTd06EK_YA/viewform" class="item-box" target="_blank">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfYZdLP4x3eFVeJSwIOMSrnABqh-XIvGt-l98PqmTd06EK_YA/viewform"
+        class="item-box" target="_blank">
         <img src="images/סמל דופליקטים.png" alt="דופליקטים 1" class="item-image">
         <div class="item-name">דרגה: קל\מאת: מתלמידי הגר"א</div>
       </a>
-      
-      <!-- Item 2 -->
-      <a href="https://forms.gle/MdQwbTmH2V69b41r9" class="item-box" target="_blank">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScIBaqNxH8D1lz_NIaz87Y5PID5pSTLHSKynBIb8XvDFpTgrw/viewform"
+        class="item-box" target="_blank">
         <img src="images/סמל דופליקטים.png" alt="דופליקטים 1" class="item-image">
-        <div class="item-name">דרגה: קל\מאת: אוהד הai</div>
+        <div class="item-name">דרגה: קשה\מאת: מאסטר הדופליקטים</div>
       </a>
+
+      <!-- Item 2 -->
+
+
+      <!-- Item 3 -->
+
+      <!-- כאן תוכל להוסיף חידון רביעי בעתיד -->
     </div>
   </div>
 
@@ -293,35 +323,35 @@
     // יצירת חלקיקים מרחפים
     function createParticles() {
       const container = document.body;
-      
+
       for (let i = 0; i < 20; i++) {
         setTimeout(() => {
           const particle = document.createElement('div');
           particle.classList.add('particle');
-          
+
           // מיקום אקראי
           const posX = Math.random() * window.innerWidth;
           const posY = Math.random() * window.innerHeight;
-          
+
           // גודל אקראי
           const size = Math.random() * 8 + 2;
-          
+
           // צבע אקראי בגווני תכלת
           const hue = 175 + Math.random() * 10;
           const opacity = Math.random() * 0.5 + 0.1;
-          
+
           particle.style.left = posX + 'px';
           particle.style.top = posY + 'px';
           particle.style.width = size + 'px';
           particle.style.height = size + 'px';
           particle.style.background = `hsla(${hue}, 70%, 70%, ${opacity})`;
-          
+
           // הגדרת אנימציה אקראית
           const duration = Math.random() * 10 + 5;
           const delay = Math.random() * 5;
-          
+
           particle.style.animation = `float ${duration}s ease-in infinite ${delay}s`;
-          
+
           container.appendChild(particle);
         }, i * 200);
       }
@@ -330,15 +360,15 @@
     // אפקט מצביע קסום
     function setupMagicCursor() {
       const cursor = document.querySelector('.magic-cursor');
-      
+
       if (window.matchMedia('(pointer: fine)').matches) {
         cursor.style.display = 'block';
-        
+
         document.addEventListener('mousemove', (e) => {
           cursor.style.left = e.clientX + 'px';
           cursor.style.top = e.clientY + 'px';
         });
-        
+
         // הגדלת הסמן על מעבר מעל אלמנטים אינטראקטיביים
         document.querySelectorAll('a, .item-box').forEach(item => {
           item.addEventListener('mouseenter', () => {
@@ -346,7 +376,7 @@
             cursor.style.height = '50px';
             cursor.style.borderColor = 'rgba(0, 128, 128, 0.8)';
           });
-          
+
           item.addEventListener('mouseleave', () => {
             cursor.style.width = '30px';
             cursor.style.height = '30px';
@@ -366,7 +396,7 @@
           }
         });
       }, { threshold: 0.1 });
-      
+
       document.querySelectorAll('.item-box').forEach(item => {
         item.style.opacity = '0';
         item.style.transform = 'translateY(30px) perspective(1000px) rotateY(5deg)';
