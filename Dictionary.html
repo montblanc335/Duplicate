@@ -294,21 +294,6 @@
       opacity: 1;
     }
 
-    /* סמן קסום */
-    .magic-cursor {
-      width: 30px;
-      height: 30px;
-      border: 2px solid rgba(157, 0, 255, 0.5);
-      border-radius: 50%;
-      position: fixed;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: width 0.2s, height 0.2s, border-color 0.2s;
-      backdrop-filter: blur(2px);
-      display: none;
-    }
-
     .controls {
       display: flex;
       justify-content: center;
@@ -411,7 +396,7 @@
 </head>
 
 <body>
-  <div class="magic-cursor"></div>
+
 
   <div class="header">
     <a href="index.html">
@@ -1015,35 +1000,6 @@
       }
     }
 
-    // אפקט מצביע קסום
-    function setupMagicCursor() {
-      const cursor = document.querySelector('.magic-cursor');
-
-      if (window.matchMedia('(pointer: fine)').matches) {
-        cursor.style.display = 'block';
-
-        document.addEventListener('mousemove', (e) => {
-          cursor.style.left = e.clientX + 'px';
-          cursor.style.top = e.clientY + 'px';
-        });
-
-        // הגדלת הסמן על מעבר מעל אלמנטים אינטראקטיביים
-        document.querySelectorAll('a, .term-box, .control-btn').forEach(item => {
-          item.addEventListener('mouseenter', () => {
-            cursor.style.width = '50px';
-            cursor.style.height = '50px';
-            cursor.style.borderColor = 'var(--accent-color)';
-          });
-
-          item.addEventListener('mouseleave', () => {
-            cursor.style.width = '30px';
-            cursor.style.height = '30px';
-            cursor.style.borderColor = 'rgba(157, 0, 255, 0.5)';
-          });
-        });
-      }
-    }
-
     // פונקצית סינון מונחים
     function filterTerms(searchTerm) {
       const filteredTerms = {};
@@ -1082,7 +1038,6 @@
     window.onload = () => {
       renderTerms(); // הצגת כל המונחים
       createParticles(); // הפעלת אנימציית חלקיקים
-      setupMagicCursor();
       document.getElementById('search-box').addEventListener('input', (e) => {
         const searchTerm = e.target.value;
         const filteredTerms = filterTerms(searchTerm);
